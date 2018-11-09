@@ -1,0 +1,1083 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>FluentMigrator.Runner</name>
+    </assembly>
+    <members>
+        <member name="P:FluentMigrator.Runner.DefaultConventionSet.RootPathConvention">
+            <inheritdoc />
+        </member>
+        <member name="P:FluentMigrator.Runner.DefaultConventionSet.SchemaConvention">
+            <inheritdoc />
+        </member>
+        <member name="P:FluentMigrator.Runner.DefaultConventionSet.ColumnsConventions">
+            <inheritdoc />
+        </member>
+        <member name="P:FluentMigrator.Runner.DefaultConventionSet.ConstraintConventions">
+            <inheritdoc />
+        </member>
+        <member name="P:FluentMigrator.Runner.DefaultConventionSet.ForeignKeyConventions">
+            <inheritdoc />
+        </member>
+        <member name="P:FluentMigrator.Runner.DefaultConventionSet.IndexConventions">
+            <inheritdoc />
+        </member>
+        <member name="P:FluentMigrator.Runner.DefaultConventionSet.SequenceConventions">
+            <inheritdoc />
+        </member>
+        <member name="P:FluentMigrator.Runner.DefaultConventionSet.AutoNameConventions">
+            <inheritdoc />
+        </member>
+        <member name="T:FluentMigrator.Runner.FluentMigratorLoggingExtensions">
+            <summary>
+            Extension methods for <see cref="T:Microsoft.Extensions.Logging.ILoggerFactory"/> and <see cref="T:Microsoft.Extensions.Logging.ILoggingBuilder"/>
+            </summary>
+        </member>
+        <member name="M:FluentMigrator.Runner.FluentMigratorLoggingExtensions.AddFluentMigratorConsole(Microsoft.Extensions.Logging.ILoggerFactory)">
+            <summary>
+            Adds the default FluentMigrator console logger
+            </summary>
+            <param name="loggerFactory">The logger factory</param>
+            <returns>The same logger factory</returns>
+        </member>
+        <member name="M:FluentMigrator.Runner.FluentMigratorLoggingExtensions.AddFluentMigratorConsole(Microsoft.Extensions.Logging.ILoggerFactory,FluentMigrator.Runner.FluentMigratorLoggerOptions)">
+            <summary>
+            Adds the default FluentMigrator console logger
+            </summary>
+            <param name="loggerFactory">The logger factory</param>
+            <param name="options">The logger options</param>
+            <returns>The same logger factory</returns>
+        </member>
+        <member name="M:FluentMigrator.Runner.FluentMigratorLoggingExtensions.AddFluentMigratorConsole(Microsoft.Extensions.Logging.ILoggingBuilder)">
+            <summary>
+            Adds the default FluentMigrator console logger
+            </summary>
+            <param name="loggingBuilder">The logging builder</param>
+            <returns>The same logging builder</returns>
+        </member>
+        <member name="T:FluentMigrator.Runner.IMigrationRunner">
+            <summary>
+            The migration runner
+            </summary>
+        </member>
+        <member name="P:FluentMigrator.Runner.IMigrationRunner.Processor">
+            <summary>
+            Gets the migration processor used by this runner
+            </summary>
+        </member>
+        <member name="P:FluentMigrator.Runner.IMigrationRunner.MigrationLoader">
+            <summary>
+            Gets or sets the migration loader to be used by this migration runner
+            </summary>
+        </member>
+        <member name="P:FluentMigrator.Runner.IMigrationRunner.MigrationAssemblies">
+            <summary>
+            Gets the assemblies searched for migrations, profile migrations, etc...
+            </summary>
+        </member>
+        <member name="P:FluentMigrator.Runner.IMigrationRunner.RunnerContext">
+            <summary>
+            Gets the runner context
+            </summary>
+        </member>
+        <member name="M:FluentMigrator.Runner.IMigrationRunner.Up(FluentMigrator.IMigration)">
+            <summary>
+            Executes an <c>Up</c> migration
+            </summary>
+            <param name="migration">The migration to execute</param>
+        </member>
+        <member name="M:FluentMigrator.Runner.IMigrationRunner.Down(FluentMigrator.IMigration)">
+            <summary>
+            Executes an <c>Down</c> migration
+            </summary>
+            <param name="migration">The migration to execute</param>
+        </member>
+        <member name="M:FluentMigrator.Runner.IMigrationRunner.MigrateUp">
+            <summary>
+            Executes all found (and unapplied) migrations
+            </summary>
+        </member>
+        <member name="M:FluentMigrator.Runner.IMigrationRunner.MigrateUp(System.Int64)">
+            <summary>
+            Executes all found (and unapplied) migrations up to the given version
+            </summary>
+            <param name="version">The target version to migrate to (inclusive)</param>
+        </member>
+        <member name="M:FluentMigrator.Runner.IMigrationRunner.Rollback(System.Int32)">
+            <summary>
+            Rollback the given number of steps
+            </summary>
+            <param name="steps">The number of steps to rollback</param>
+        </member>
+        <member name="M:FluentMigrator.Runner.IMigrationRunner.RollbackToVersion(System.Int64)">
+            <summary>
+            Rollback to a given version
+            </summary>
+            <param name="version">The target version to rollback to</param>
+        </member>
+        <member name="M:FluentMigrator.Runner.IMigrationRunner.MigrateDown(System.Int64)">
+            <summary>
+            Migrate down to the given version
+            </summary>
+            <param name="version">The version to migrate down to</param>
+        </member>
+        <member name="M:FluentMigrator.Runner.IMigrationRunner.ValidateVersionOrder">
+            <summary>
+            Validate that there were no missing migration versions
+            </summary>
+            <remarks>
+            Throws an exception if a missing migration was found.
+            </remarks>
+        </member>
+        <member name="M:FluentMigrator.Runner.IMigrationRunner.ListMigrations">
+            <summary>
+            List all migrations to the logger
+            </summary>
+        </member>
+        <member name="M:FluentMigrator.Runner.IMigrationRunner.HasMigrationsToApplyUp(System.Nullable{System.Int64})">
+            <summary>
+            Returns <c>true</c> when there are migrations to apply
+            </summary>
+            <param name="version">The target version (or <c>null</c> if the last one should be used)</param>
+            <returns><c>true</c> when there are migrations to apply</returns>
+        </member>
+        <member name="M:FluentMigrator.Runner.IMigrationRunner.HasMigrationsToApplyDown(System.Int64)">
+            <summary>
+            Returns <c>true</c> when there are migrations to revert
+            </summary>
+            <param name="version">The target version</param>
+            <returns><c>true</c> when there are migrations to revert</returns>
+        </member>
+        <member name="M:FluentMigrator.Runner.IMigrationRunner.HasMigrationsToApplyRollback">
+            <summary>
+            Are there migrations available for a rollback?
+            </summary>
+            <returns><c>true</c> when there are migrations available for a rollback</returns>
+        </member>
+        <member name="T:FluentMigrator.Runner.IMigrationScope">
+            <summary>
+            A migration scope that encapsulates database changes in a transaction
+            </summary>
+        </member>
+        <member name="P:FluentMigrator.Runner.IMigrationScope.IsActive">
+            <summary>
+            Gets a value indicating whether the migration scope is active?
+            </summary>
+            <remarks>
+            A migration scope is considered active when it is the outmost scope.
+            </remarks>
+        </member>
+        <member name="M:FluentMigrator.Runner.IMigrationScope.Complete">
+            <summary>
+            Marks the scope as complete.
+            </summary>
+            <remarks>
+            This usually involves the commit a transaction.
+            </remarks>
+        </member>
+        <member name="M:FluentMigrator.Runner.IMigrationScope.Cancel">
+            <summary>
+            Marks the scope as cancelled.
+            </summary>
+            <remarks>
+            This usually involves the rollback of a transaction.
+            </remarks>
+        </member>
+        <member name="T:FluentMigrator.Runner.IMigrationScopeStarter">
+            <summary>
+            Manually start a migration scope
+            </summary>
+            <remarks>
+            This is handles nested scopes gracefully.
+            </remarks>
+        </member>
+        <member name="M:FluentMigrator.Runner.IMigrationScopeStarter.BeginScope">
+            <summary>
+            Starts a new migration scope
+            </summary>
+            <returns>A new migration scope</returns>
+        </member>
+        <member name="T:FluentMigrator.Runner.Initialization.AssemblyLoader.AssemblyLoaderFactory">
+            <summary>
+            Class that creates an <see cref="T:FluentMigrator.Runner.Initialization.AssemblyLoader.IAssemblyLoader"/> for a given assembly name
+            </summary>
+        </member>
+        <member name="M:FluentMigrator.Runner.Initialization.AssemblyLoader.AssemblyLoaderFactory.GetAssemblyLoader(System.String)">
+            <summary>
+            Returns an assembly loader for an assembly with the given name
+            </summary>
+            <param name="name">The assembly name (can be an assembly name or file name)</param>
+            <returns>The new assembly loader</returns>
+        </member>
+        <member name="T:FluentMigrator.Runner.Initialization.IScanIn">
+            <summary>
+            Interface to store the current source item
+            </summary>
+        </member>
+        <member name="P:FluentMigrator.Runner.Initialization.IScanIn.SourceItem">
+            <summary>
+            Gets the current assembly source item
+            </summary>
+        </member>
+        <member name="T:FluentMigrator.Runner.Initialization.IScanInBuilder">
+            <summary>
+            Interface to define how the scanned assemblies are used
+            </summary>
+        </member>
+        <member name="P:FluentMigrator.Runner.Initialization.IScanInBuilder.For">
+            <summary>
+            Gets the next step
+            </summary>
+        </member>
+        <member name="T:FluentMigrator.Runner.Initialization.IScanInForBuilder">
+            <summary>
+            Defines how the scanned assemblies are used
+            </summary>
+        </member>
+        <member name="M:FluentMigrator.Runner.Initialization.IScanInForBuilder.Migrations">
+            <summary>
+            Use the scanned assemblies for migrations
+            </summary>
+            <returns>The next step</returns>
+        </member>
+        <member name="M:FluentMigrator.Runner.Initialization.IScanInForBuilder.VersionTableMetaData">
+            <summary>
+            Use the scanned assemblies for version table metadata
+            </summary>
+            <returns>The next step</returns>
+        </member>
+        <member name="M:FluentMigrator.Runner.Initialization.IScanInForBuilder.EmbeddedResources">
+            <summary>
+            Use the scanned assemblies for embedded resources
+            </summary>
+            <returns>The next step</returns>
+        </member>
+        <member name="M:FluentMigrator.Runner.Initialization.IScanInForBuilder.All">
+            <summary>
+            Use the scanned assemblies for everything (migrationes, etc...)
+            </summary>
+            <returns>The next step</returns>
+        </member>
+        <member name="T:FluentMigrator.Runner.Initialization.NetFramework.AppConfigConnectionStringAccessorOptions">
+            <summary>
+            Options for the <c>AppConfigConnectionStringReader</c>
+            </summary>
+        </member>
+        <member name="P:FluentMigrator.Runner.Initialization.NetFramework.AppConfigConnectionStringAccessorOptions.ConnectionStringConfigPath">
+            <summary>
+            Gets or sets the path where the config file can be found
+            </summary>
+        </member>
+        <member name="P:FluentMigrator.Runner.Initialization.NetFramework.AppConfigConnectionStringAccessorOptions.MachineName">
+            <summary>
+            Gets or sets the machine name
+            </summary>
+        </member>
+        <member name="T:FluentMigrator.Runner.Initialization.NetFramework.AppConfigConnectionStringReader">
+            <summary>
+            A <see cref="T:FluentMigrator.Runner.Initialization.IConnectionStringReader"/> implementation that uses the app or machine config
+            </summary>
+        </member>
+        <member name="P:FluentMigrator.Runner.Initialization.NetFramework.AppConfigConnectionStringReader.Priority">
+            <inheritdoc />
+        </member>
+        <member name="M:FluentMigrator.Runner.Initialization.NetFramework.AppConfigConnectionStringReader.GetConnectionString(System.String)">
+            <inheritdoc />
+        </member>
+        <member name="T:FluentMigrator.Runner.Initialization.NetFramework.ConnectionStringManager">
+            <summary>
+            Locates connection strings by name in assembly's config file or machine.config
+            If no connection matches it uses the specified connection string as valid connection
+            </summary>
+        </member>
+        <member name="T:FluentMigrator.Runner.Initialization.NetFramework.INetConfigManager">
+            <summary>
+            Understand .NET config mechanism and provides access to Configuration sections
+            </summary>
+        </member>
+        <member name="P:FluentMigrator.Runner.Initialization.RunnerContext.AllowBreakingChange">
+            <inheritdoc />
+        </member>
+        <member name="P:FluentMigrator.Runner.Initialization.RunnerContext.ApplicationContext">
+            <inheritdoc />
+        </member>
+        <member name="P:FluentMigrator.Runner.Initialization.RunnerContext.DefaultSchemaName">
+            <inheritdoc />
+        </member>
+        <member name="P:FluentMigrator.Runner.Initialization.TaskExecutor.Runner">
+            <summary>
+            Gets the current migration runner
+            </summary>
+            <remarks>
+            This will only be set during a migration operation
+            </remarks>
+        </member>
+        <member name="P:FluentMigrator.Runner.Initialization.TaskExecutor.ConnectionStringProvider">
+            <summary>
+            Gets the connection string provider
+            </summary>
+        </member>
+        <member name="P:FluentMigrator.Runner.Initialization.TaskExecutor.ServiceProvider">
+            <summary>
+            Gets the service provider used to instantiate all migration services
+            </summary>
+        </member>
+        <member name="M:FluentMigrator.Runner.Initialization.TaskExecutor.Initialize">
+            <summary>
+            Will be called durin the runner scope intialization
+            </summary>
+            <remarks>
+            The <see cref="P:FluentMigrator.Runner.Initialization.TaskExecutor.Runner"/> isn't initialized yet.
+            </remarks>
+        </member>
+        <member name="M:FluentMigrator.Runner.Initialization.TaskExecutor.HasMigrationsToApply">
+            <summary>
+            Checks whether the current task will actually run any migrations.
+            Can be used to decide whether it's necessary perform a backup before the migrations are executed.
+            </summary>
+        </member>
+        <member name="T:FluentMigrator.Runner.IProfileLoader">
+            <summary>
+            Interface to load migrations tagged with a profile name
+            </summary>
+        </member>
+        <member name="P:FluentMigrator.Runner.IProfileLoader.SupportsParameterlessApplyProfile">
+            <summary>
+            Gets a value indicating whether this instance allows a call to <see cref="M:FluentMigrator.Runner.IProfileLoader.ApplyProfiles"/>
+            </summary>
+        </member>
+        <member name="M:FluentMigrator.Runner.IProfileLoader.ApplyProfiles">
+            <summary>
+            Apply all loaded profiles
+            </summary>
+        </member>
+        <member name="M:FluentMigrator.Runner.IProfileLoader.ApplyProfiles(FluentMigrator.Runner.IMigrationRunner)">
+            <summary>
+            Apply all loaded profiles with the given runner
+            </summary>
+            <param name="runner">The migration ruinner</param>
+        </member>
+        <member name="M:FluentMigrator.Runner.IProfileLoader.FindProfilesIn(FluentMigrator.Infrastructure.IAssemblyCollection,System.String)">
+            <summary>
+            Find all profile name tagged migrations in the given assembly collection
+            </summary>
+            <param name="assemblies">The assemblies to load the profile tagged migrations from</param>
+            <param name="profile">The profile name to search the migrations for</param>
+            <returns>The found migrations</returns>
+        </member>
+        <member name="T:FluentMigrator.Runner.IVersionLoader">
+            <summary>
+            Manages the version table and the stored versions
+            </summary>
+        </member>
+        <member name="P:FluentMigrator.Runner.IVersionLoader.AlreadyCreatedVersionSchema">
+            <summary>
+            Gets a value indicating whether the schema for the version table has been created (or already exited)
+            </summary>
+        </member>
+        <member name="P:FluentMigrator.Runner.IVersionLoader.AlreadyCreatedVersionTable">
+            <summary>
+            Gets a value indicating whether the version table has been created (or already exited)
+            </summary>
+        </member>
+        <member name="M:FluentMigrator.Runner.IVersionLoader.DeleteVersion(System.Int64)">
+            <summary>
+            Deletes a version from the version table
+            </summary>
+            <param name="version">The version to delete from the version table</param>
+        </member>
+        <member name="M:FluentMigrator.Runner.IVersionLoader.GetVersionTableMetaData">
+            <summary>
+            Get the version table metadata
+            </summary>
+            <returns>The version table metadata</returns>
+        </member>
+        <member name="M:FluentMigrator.Runner.IVersionLoader.LoadVersionInfo">
+            <summary>
+            Loads all version data stored in the version table
+            </summary>
+        </member>
+        <member name="M:FluentMigrator.Runner.IVersionLoader.RemoveVersionTable">
+            <summary>
+            Removes the version table
+            </summary>
+        </member>
+        <member name="P:FluentMigrator.Runner.IVersionLoader.Runner">
+            <summary>
+            The runner this version loader belongs to
+            </summary>
+        </member>
+        <member name="M:FluentMigrator.Runner.IVersionLoader.UpdateVersionInfo(System.Int64)">
+            <summary>
+            Adds the version information
+            </summary>
+            <param name="version">The version number</param>
+        </member>
+        <member name="M:FluentMigrator.Runner.IVersionLoader.UpdateVersionInfo(System.Int64,System.String)">
+            <summary>
+            Adds the version information
+            </summary>
+            <param name="version">The version number</param>
+            <param name="description">The version description</param>
+        </member>
+        <member name="P:FluentMigrator.Runner.IVersionLoader.VersionInfo">
+            <summary>
+            Gets an interface to query/update the status of migrations
+            </summary>
+        </member>
+        <member name="P:FluentMigrator.Runner.IVersionLoader.VersionTableMetaData">
+            <summary>
+            Gets the version table meta data
+            </summary>
+        </member>
+        <member name="T:FluentMigrator.Runner.LegacyExtensions">
+            <summary>
+            Extension methods
+            </summary>
+        </member>
+        <member name="M:FluentMigrator.Runner.LegacyExtensions.GetVersionTableMetaDataType(System.Collections.Generic.IEnumerable{System.Reflection.Assembly},FluentMigrator.Runner.IMigrationRunnerConventions,FluentMigrator.Runner.Initialization.IRunnerContext)">
+            <summary>
+            Find the version table meta data in the given assembly collection
+            </summary>
+            <param name="assemblies">The assembly collection</param>
+            <param name="runnerConventions">The runner conventions used to identify a version table metadata type</param>
+            <param name="runnerContext">The runner context defining the search boundaries for the custom version table metadata type</param>
+            <returns>A custom or the default version table metadata instance</returns>
+        </member>
+        <member name="M:FluentMigrator.Runner.LegacyExtensions.GetVersionTableMetaDataType(System.Collections.Generic.IEnumerable{System.Reflection.Assembly},System.IServiceProvider)">
+            <summary>
+            Find the version table meta data in the given assembly collection
+            </summary>
+            <param name="assemblies">The assembly collection</param>
+            <param name="serviceProvider">The service provider to get all the required services from</param>
+            <returns>A custom or the default version table metadata instance</returns>
+        </member>
+        <member name="M:FluentMigrator.Runner.LegacyExtensions.LoadConnectionString(System.Collections.Generic.IReadOnlyCollection{System.Reflection.Assembly},FluentMigrator.Runner.Initialization.IConnectionStringProvider,FluentMigrator.Runner.Initialization.IRunnerContext)">
+            <summary>
+            Loads the connection string using the connection string provider for the given assembly
+            </summary>
+            <param name="assemblies">The assembly to load the connection string from</param>
+            <param name="connectionStringProvider">The connection string provider</param>
+            <param name="runnerContext">The runner context</param>
+            <returns>The found connection string</returns>
+        </member>
+        <member name="M:FluentMigrator.Runner.LegacyExtensions.GetTargetAssemblies(FluentMigrator.Runner.Initialization.AssemblyLoader.AssemblyLoaderFactory,System.Collections.Generic.IEnumerable{System.String})">
+            <summary>
+            Get all assemblies for the given assembly names
+            </summary>
+            <param name="loaderFactory">The factory to create an <see cref="T:FluentMigrator.Runner.Initialization.AssemblyLoader.IAssemblyLoader"/> for a given assembly (file) name</param>
+            <param name="assemblyNames">The assembly (file) names</param>
+            <returns>The collection of assemblies that could be loaded</returns>
+        </member>
+        <member name="M:FluentMigrator.Runner.LegacyExtensions.GetExportedTypes(System.Collections.Generic.IEnumerable{System.Reflection.Assembly})">
+            <summary>
+            Get the collection of exported types
+            </summary>
+            <param name="assemblies">The assemblies to get the exported types from</param>
+            <returns>The exported types</returns>
+        </member>
+        <member name="T:FluentMigrator.Runner.Logging.FluentMigratorConsoleLogger">
+            <summary>
+            The default fluent migrator console logger
+            </summary>
+        </member>
+        <member name="M:FluentMigrator.Runner.Logging.FluentMigratorConsoleLogger.#ctor(FluentMigrator.Runner.FluentMigratorLoggerOptions)">
+            <summary>
+            Initializes a new instance of the <see cref="T:FluentMigrator.Runner.Logging.FluentMigratorConsoleLogger"/> class.
+            </summary>
+            <param name="options">The logger options</param>
+        </member>
+        <member name="M:FluentMigrator.Runner.Logging.FluentMigratorConsoleLogger.WriteHeading(System.String)">
+            <inheritdoc />
+        </member>
+        <member name="M:FluentMigrator.Runner.Logging.FluentMigratorConsoleLogger.WriteEmphasize(System.String)">
+            <inheritdoc />
+        </member>
+        <member name="M:FluentMigrator.Runner.Logging.FluentMigratorConsoleLogger.WriteSql(System.String)">
+            <inheritdoc />
+        </member>
+        <member name="M:FluentMigrator.Runner.Logging.FluentMigratorConsoleLogger.WriteEmptySql">
+            <inheritdoc />
+        </member>
+        <member name="M:FluentMigrator.Runner.Logging.FluentMigratorConsoleLogger.WriteElapsedTime(System.TimeSpan)">
+            <inheritdoc />
+        </member>
+        <member name="M:FluentMigrator.Runner.Logging.FluentMigratorConsoleLogger.WriteSay(System.String)">
+            <inheritdoc />
+        </member>
+        <member name="M:FluentMigrator.Runner.Logging.FluentMigratorConsoleLogger.WriteError(System.Exception)">
+            <inheritdoc />
+        </member>
+        <member name="M:FluentMigrator.Runner.Logging.FluentMigratorConsoleLogger.WriteError(System.String)">
+            <inheritdoc />
+        </member>
+        <member name="T:FluentMigrator.Runner.Logging.FluentMigratorConsoleLoggerProvider">
+            <summary>
+            The default FluentMigrator console output
+            </summary>
+        </member>
+        <member name="M:FluentMigrator.Runner.Logging.FluentMigratorConsoleLoggerProvider.#ctor(Microsoft.Extensions.Options.IOptions{FluentMigrator.Runner.FluentMigratorLoggerOptions})">
+            <summary>
+            Initializes a new instance of the <see cref="T:FluentMigrator.Runner.Logging.FluentMigratorConsoleLoggerProvider"/> class.
+            </summary>
+            <param name="options">The logger options</param>
+        </member>
+        <member name="M:FluentMigrator.Runner.Logging.FluentMigratorConsoleLoggerProvider.CreateLogger(System.String)">
+            <inheritdoc />
+        </member>
+        <member name="M:FluentMigrator.Runner.Logging.FluentMigratorConsoleLoggerProvider.Dispose">
+            <inheritdoc />
+        </member>
+        <member name="T:FluentMigrator.Runner.Logging.LegacyFluentMigratorLoggerProvider">
+            <summary>
+            Provider for a <see cref="T:FluentMigrator.Runner.Logging.AnnouncerFluentMigratorLogger"/>
+            </summary>
+        </member>
+        <member name="M:FluentMigrator.Runner.Logging.LegacyFluentMigratorLoggerProvider.#ctor(FluentMigrator.Runner.IAnnouncer)">
+            <summary>
+            Initializes a new instance of the <see cref="T:FluentMigrator.Runner.Logging.LegacyFluentMigratorLoggerProvider"/> class.
+            </summary>
+            <param name="announcer">The announcer to send the messages to</param>
+        </member>
+        <member name="M:FluentMigrator.Runner.Logging.LegacyFluentMigratorLoggerProvider.CreateLogger(System.String)">
+            <inheritdoc />
+        </member>
+        <member name="M:FluentMigrator.Runner.Logging.LegacyFluentMigratorLoggerProvider.Dispose">
+            <inheritdoc />
+        </member>
+        <member name="P:FluentMigrator.Runner.MigrationRunnerConventions.GetMigrationInfoForMigration">
+            <inheritdoc />
+        </member>
+        <member name="T:FluentMigrator.Runner.MigrationRunner">
+            <summary>
+            The default <see cref="T:FluentMigrator.Runner.IMigrationRunner"/> implementation
+            </summary>
+        </member>
+        <member name="M:FluentMigrator.Runner.MigrationRunner.#ctor(System.Reflection.Assembly,FluentMigrator.Runner.Initialization.IRunnerContext,FluentMigrator.IMigrationProcessor)">
+            <summary>
+            Initializes a new instance of the <see cref="T:FluentMigrator.Runner.MigrationRunner"/> class.
+            </summary>
+            <param name="assembly">The assembly to scan for migrations, etc...</param>
+            <param name="runnerContext">The runner context</param>
+            <param name="processor">The migration processor</param>
+        </member>
+        <member name="M:FluentMigrator.Runner.MigrationRunner.#ctor(System.Reflection.Assembly,FluentMigrator.Runner.Initialization.IRunnerContext,FluentMigrator.IMigrationProcessor,FluentMigrator.Runner.Conventions.IConventionSet)">
+            <summary>
+            Initializes a new instance of the <see cref="T:FluentMigrator.Runner.MigrationRunner"/> class.
+            </summary>
+            <param name="assembly">The assembly to scan for migrations, etc...</param>
+            <param name="runnerContext">The runner context</param>
+            <param name="processor">The migration processor</param>
+            <param name="conventionSet">The expression convention set</param>
+        </member>
+        <member name="M:FluentMigrator.Runner.MigrationRunner.#ctor(FluentMigrator.Infrastructure.IAssemblyCollection,FluentMigrator.Runner.Initialization.IRunnerContext,FluentMigrator.IMigrationProcessor,FluentMigrator.Runner.VersionTableInfo.IVersionTableMetaData,FluentMigrator.Runner.IMigrationRunnerConventions)">
+            <summary>
+            Initializes a new instance of the <see cref="T:FluentMigrator.Runner.MigrationRunner"/> class.
+            </summary>
+            <param name="assemblies">The collection of assemblies to scan for migrations, etc...</param>
+            <param name="runnerContext">The runner context</param>
+            <param name="processor">The migration processor</param>
+            <param name="versionTableMetaData">The version table metadata</param>
+            <param name="migrationRunnerConventions">The custom migration runner conventions</param>
+        </member>
+        <member name="M:FluentMigrator.Runner.MigrationRunner.#ctor(FluentMigrator.Infrastructure.IAssemblyCollection,FluentMigrator.Runner.Initialization.IRunnerContext,FluentMigrator.IMigrationProcessor,FluentMigrator.Runner.VersionTableInfo.IVersionTableMetaData,FluentMigrator.Runner.IMigrationRunnerConventions,FluentMigrator.Runner.Conventions.IConventionSet)">
+            <summary>
+            Initializes a new instance of the <see cref="T:FluentMigrator.Runner.MigrationRunner"/> class.
+            </summary>
+            <param name="assemblies">The collection of assemblies to scan for migrations, etc...</param>
+            <param name="runnerContext">The runner context</param>
+            <param name="processor">The migration processor</param>
+            <param name="versionTableMetaData">The version table metadata</param>
+            <param name="migrationRunnerConventions">The custom migration runner conventions</param>
+            <param name="conventionSet">The expression convention set</param>
+        </member>
+        <member name="M:FluentMigrator.Runner.MigrationRunner.#ctor(Microsoft.Extensions.Options.IOptions{FluentMigrator.Runner.Initialization.RunnerOptions},Microsoft.Extensions.Options.IOptionsSnapshot{FluentMigrator.Runner.Processors.ProcessorOptions},FluentMigrator.Runner.IProfileLoader,FluentMigrator.Runner.Processors.IProcessorAccessor,FluentMigrator.Runner.IMaintenanceLoader,FluentMigrator.Runner.IMigrationInformationLoader,Microsoft.Extensions.Logging.ILogger{FluentMigrator.Runner.MigrationRunner},FluentMigrator.Runner.IStopWatch,FluentMigrator.Runner.Initialization.IMigrationRunnerConventionsAccessor,FluentMigrator.Runner.Initialization.IAssemblySource,FluentMigrator.Runner.MigrationValidator,System.IServiceProvider)">
+            <summary>
+            Initializes a new instance of the <see cref="T:FluentMigrator.Runner.MigrationRunner"/> class.
+            </summary>
+            <param name="options">The migration runner options</param>
+            <param name="processorOptions">The migration processor options</param>
+            <param name="profileLoader">The profile loader</param>
+            <param name="processorAccessor">The migration processor accessor</param>
+            <param name="maintenanceLoader">The maintenance loader</param>
+            <param name="migrationLoader">The migration loader</param>
+            <param name="logger">The logger</param>
+            <param name="stopWatch">The stopwatch</param>
+            <param name="migrationRunnerConventionsAccessor">The accessor for migration runner conventions</param>
+            <param name="assemblySource">The assemblies to scan for migrations, etc...</param>
+            <param name="migrationValidator">The validator for migrations</param>
+            <param name="serviceProvider">The service provider</param>
+        </member>
+        <member name="P:FluentMigrator.Runner.MigrationRunner.TransactionPerSession">
+            <summary>
+            Gets a value indicating whether a single transaction for the whole session should be used
+            </summary>
+        </member>
+        <member name="P:FluentMigrator.Runner.MigrationRunner.SilentlyFail">
+            <summary>
+            Gets a value indicating whether exceptions should be caught
+            </summary>
+        </member>
+        <member name="P:FluentMigrator.Runner.MigrationRunner.CaughtExceptions">
+            <summary>
+            Gets the caught exceptions when <see cref="P:FluentMigrator.Runner.MigrationRunner.SilentlyFail"/> is <c>true</c>
+            </summary>
+        </member>
+        <member name="P:FluentMigrator.Runner.MigrationRunner.Processor">
+            <inheritdoc />
+        </member>
+        <member name="P:FluentMigrator.Runner.MigrationRunner.MigrationLoader">
+            <inheritdoc />
+        </member>
+        <member name="P:FluentMigrator.Runner.MigrationRunner.ProfileLoader">
+            <summary>
+            Gets or sets the profile loader
+            </summary>
+        </member>
+        <member name="P:FluentMigrator.Runner.MigrationRunner.MaintenanceLoader">
+            <summary>
+            Gets the maintenance loader
+            </summary>
+        </member>
+        <member name="P:FluentMigrator.Runner.MigrationRunner.Conventions">
+            <summary>
+            Gets the migration runner conventions
+            </summary>
+        </member>
+        <member name="P:FluentMigrator.Runner.MigrationRunner.CurrentScope">
+            <summary>
+            Gets the currently active migration scope
+            </summary>
+        </member>
+        <member name="P:FluentMigrator.Runner.MigrationRunner.RunnerContext">
+            <inheritdoc />
+        </member>
+        <member name="P:FluentMigrator.Runner.MigrationRunner.VersionLoader">
+            <summary>
+            Gets or sets the version loader
+            </summary>
+        </member>
+        <member name="M:FluentMigrator.Runner.MigrationRunner.ApplyProfiles">
+            <summary>
+            Apply all matching profiles
+            </summary>
+        </member>
+        <member name="M:FluentMigrator.Runner.MigrationRunner.ApplyMaintenance(FluentMigrator.MigrationStage,System.Boolean)">
+            <summary>
+            Apply maintenance changes
+            </summary>
+            <param name="stage">The maintenance stage</param>
+            <param name="useAutomaticTransactionManagement"><c>true</c> if automatic transaction management should be used</param>
+        </member>
+        <member name="M:FluentMigrator.Runner.MigrationRunner.MigrateUp">
+            <inheritdoc />
+        </member>
+        <member name="M:FluentMigrator.Runner.MigrationRunner.MigrateUp(System.Boolean)">
+            <summary>
+            Apply migrations
+            </summary>
+            <param name="useAutomaticTransactionManagement"><c>true</c> if automatic transaction management should be used</param>
+        </member>
+        <member name="M:FluentMigrator.Runner.MigrationRunner.MigrateUp(System.Int64)">
+            <inheritdoc />
+        </member>
+        <member name="M:FluentMigrator.Runner.MigrationRunner.MigrateUp(System.Int64,System.Boolean)">
+            <summary>
+            Apply migrations up to the given <paramref name="targetVersion"/>
+            </summary>
+            <param name="targetVersion">The target migration version</param>
+            <param name="useAutomaticTransactionManagement"><c>true</c> if automatic transaction management should be used</param>
+        </member>
+        <member name="M:FluentMigrator.Runner.MigrationRunner.MigrateDown(System.Int64)">
+            <inheritdoc />
+        </member>
+        <member name="M:FluentMigrator.Runner.MigrationRunner.MigrateDown(System.Int64,System.Boolean)">
+            <summary>
+            Revert migrations down to the given <paramref name="targetVersion"/>
+            </summary>
+            <param name="targetVersion">The target version that should become the last applied migration version</param>
+            <param name="useAutomaticTransactionManagement"><c>true</c> if automatic transaction management should be used</param>
+        </member>
+        <member name="M:FluentMigrator.Runner.MigrationRunner.HasMigrationsToApplyUp(System.Nullable{System.Int64})">
+            <inheritdoc />
+        </member>
+        <member name="M:FluentMigrator.Runner.MigrationRunner.HasMigrationsToApplyDown(System.Int64)">
+            <inheritdoc />
+        </member>
+        <member name="M:FluentMigrator.Runner.MigrationRunner.HasMigrationsToApplyRollback">
+            <inheritdoc />
+        </member>
+        <member name="M:FluentMigrator.Runner.MigrationRunner.ApplyMigrationUp(FluentMigrator.Infrastructure.IMigrationInfo,System.Boolean)">
+            <summary>
+            Apply the migration using the given migration information
+            </summary>
+            <param name="migrationInfo">The migration information</param>
+            <param name="useTransaction"><c>true</c> when a transaction for this migration should be used</param>
+        </member>
+        <member name="M:FluentMigrator.Runner.MigrationRunner.ApplyMigrationDown(FluentMigrator.Infrastructure.IMigrationInfo,System.Boolean)">
+            <summary>
+            Revert the migration using the given migration information
+            </summary>
+            <param name="migrationInfo">The migration information</param>
+            <param name="useTransaction"><c>true</c> when a transaction for this operation should be used</param>
+        </member>
+        <member name="M:FluentMigrator.Runner.MigrationRunner.Rollback(System.Int32)">
+            <inheritdoc />
+        </member>
+        <member name="M:FluentMigrator.Runner.MigrationRunner.Rollback(System.Int32,System.Boolean)">
+            <summary>
+            Rollback the last <paramref name="steps"/>
+            </summary>
+            <param name="steps">The number of migrations to rollback</param>
+            <param name="useAutomaticTransactionManagement"><c>true</c> if automatic transaction management should be used</param>
+        </member>
+        <member name="M:FluentMigrator.Runner.MigrationRunner.RollbackToVersion(System.Int64)">
+            <inheritdoc />
+        </member>
+        <member name="M:FluentMigrator.Runner.MigrationRunner.RollbackToVersion(System.Int64,System.Boolean)">
+            <summary>
+            Rollback to a given <paramref name="version"/>
+            </summary>
+            <param name="version">The version to rollback to (exclusive)</param>
+            <param name="useAutomaticTransactionManagement"><c>true</c> if automatic transaction management should be used</param>
+        </member>
+        <member name="P:FluentMigrator.Runner.MigrationRunner.MigrationAssemblies">
+            <inheritdoc />
+        </member>
+        <member name="M:FluentMigrator.Runner.MigrationRunner.Up(FluentMigrator.IMigration)">
+            <inheritdoc />
+        </member>
+        <member name="M:FluentMigrator.Runner.MigrationRunner.Down(FluentMigrator.IMigration)">
+            <inheritdoc />
+        </member>
+        <member name="M:FluentMigrator.Runner.MigrationRunner.ExecuteExpressions(System.Collections.Generic.ICollection{FluentMigrator.Expressions.IMigrationExpression})">
+            <summary>
+            Execute each migration expression in the expression collection
+            </summary>
+            <param name="expressions">The expressions to execute</param>
+        </member>
+        <member name="M:FluentMigrator.Runner.MigrationRunner.ValidateVersionOrder">
+            <inheritdoc />
+        </member>
+        <member name="M:FluentMigrator.Runner.MigrationRunner.ListMigrations">
+            <inheritdoc />
+        </member>
+        <member name="M:FluentMigrator.Runner.MigrationRunner.BeginScope">
+            <inheritdoc />
+        </member>
+        <member name="T:FluentMigrator.Runner.MigrationRunnerBuilderExtensions">
+            <summary>
+            Extension methods for the <see cref="T:FluentMigrator.Runner.IMigrationRunnerBuilder"/> interface
+            </summary>
+        </member>
+        <member name="M:FluentMigrator.Runner.MigrationRunnerBuilderExtensions.ConfigureGlobalProcessorOptions(FluentMigrator.Runner.IMigrationRunnerBuilder,System.Action{FluentMigrator.Runner.Processors.ProcessorOptions})">
+            <summary>
+            Sets configuration action for global processor options
+            </summary>
+            <param name="builder">The runner builder</param>
+            <param name="configureAction">The configuration action</param>
+            <returns>The runner builder</returns>
+        </member>
+        <member name="M:FluentMigrator.Runner.MigrationRunnerBuilderExtensions.WithGlobalConnectionString(FluentMigrator.Runner.IMigrationRunnerBuilder,System.String)">
+            <summary>
+            Sets the global connection string
+            </summary>
+            <param name="builder">The runner builder</param>
+            <param name="connectionStringOrName">The connection string or name to use</param>
+            <returns>The runner builder</returns>
+        </member>
+        <member name="M:FluentMigrator.Runner.MigrationRunnerBuilderExtensions.WithGlobalCommandTimeout(FluentMigrator.Runner.IMigrationRunnerBuilder,System.TimeSpan)">
+            <summary>
+            Sets the global command timeout
+            </summary>
+            <param name="builder">The runner builder</param>
+            <param name="commandTimeout">The global command timeout</param>
+            <returns>The runner builder</returns>
+        </member>
+        <member name="M:FluentMigrator.Runner.MigrationRunnerBuilderExtensions.AsGlobalPreview(FluentMigrator.Runner.IMigrationRunnerBuilder,System.Boolean)">
+            <summary>
+            Sets the global preview mode
+            </summary>
+            <param name="builder">The runner builder</param>
+            <param name="preview">The global preview mode</param>
+            <returns>The runner builder</returns>
+        </member>
+        <member name="M:FluentMigrator.Runner.MigrationRunnerBuilderExtensions.WithVersionTable(FluentMigrator.Runner.IMigrationRunnerBuilder,FluentMigrator.Runner.VersionTableInfo.IVersionTableMetaData)">
+            <summary>
+            Sets the version table meta data
+            </summary>
+            <param name="builder">The runner builder</param>
+            <param name="versionTableMetaData">The version table meta data</param>
+            <returns>The runner builder</returns>
+        </member>
+        <member name="M:FluentMigrator.Runner.MigrationRunnerBuilderExtensions.WithRunnerConventions(FluentMigrator.Runner.IMigrationRunnerBuilder,FluentMigrator.Runner.IMigrationRunnerConventions)">
+            <summary>
+            Sets the migration runner conventions
+            </summary>
+            <param name="builder">The runner builder</param>
+            <param name="conventions">The migration runner conventions</param>
+            <returns>The runner builder</returns>
+        </member>
+        <member name="M:FluentMigrator.Runner.MigrationRunnerBuilderExtensions.WithMigrationsIn(FluentMigrator.Runner.IMigrationRunnerBuilder,System.Reflection.Assembly[])">
+            <summary>
+            Adds the migrations
+            </summary>
+            <param name="builder">The runner builder</param>
+            <param name="assemblies">The target assemblies</param>
+            <returns>The runner builder</returns>
+        </member>
+        <member name="M:FluentMigrator.Runner.MigrationRunnerBuilderExtensions.ScanIn(FluentMigrator.Runner.IMigrationRunnerBuilder,System.Reflection.Assembly[])">
+            <summary>
+            Scans for types in the given assemblies
+            </summary>
+            <param name="builder">The runner builder</param>
+            <param name="assemblies">The assemblies to scan</param>
+            <returns>The next step</returns>
+        </member>
+        <member name="P:FluentMigrator.Runner.MigrationRunnerBuilderExtensions.ScanInBuilder.Services">
+            <inheritdoc />
+        </member>
+        <member name="P:FluentMigrator.Runner.MigrationRunnerBuilderExtensions.ScanInBuilder.DanglingAssemblySourceItem">
+            <inheritdoc />
+        </member>
+        <member name="P:FluentMigrator.Runner.MigrationRunnerBuilderExtensions.ScanInBuilder.SourceItem">
+            <inheritdoc />
+        </member>
+        <member name="P:FluentMigrator.Runner.MigrationRunnerBuilderExtensions.ScanInBuilder.For">
+            <inheritdoc />
+        </member>
+        <member name="M:FluentMigrator.Runner.MigrationRunnerBuilderExtensions.ScanInBuilder.Migrations">
+            <inheritdoc />
+        </member>
+        <member name="M:FluentMigrator.Runner.MigrationRunnerBuilderExtensions.ScanInBuilder.VersionTableMetaData">
+            <inheritdoc />
+        </member>
+        <member name="M:FluentMigrator.Runner.MigrationRunnerBuilderExtensions.ScanInBuilder.EmbeddedResources">
+            <inheritdoc />
+        </member>
+        <member name="M:FluentMigrator.Runner.MigrationRunnerBuilderExtensions.ScanInBuilder.All">
+            <inheritdoc />
+        </member>
+        <member name="M:FluentMigrator.Runner.MigrationValidator.ApplyConventionsToAndValidateExpressions(FluentMigrator.IMigration,System.Collections.Generic.IEnumerable{FluentMigrator.Expressions.IMigrationExpression})">
+            <summary>
+            Validates each migration expression that has implemented the ICanBeValidated interface.
+            It throws an InvalidMigrationException exception if validation fails.
+            </summary>
+            <param name="migration">The current migration being run</param>
+            <param name="expressions">All the expressions contained in the up or down action</param>
+        </member>
+        <member name="T:FluentMigrator.Runner.NoOpMigrationScope">
+            <summary>
+            A "no-operation" migration scope
+            </summary>
+        </member>
+        <member name="M:FluentMigrator.Runner.NoOpMigrationScope.Dispose">
+            <inheritdoc />
+        </member>
+        <member name="P:FluentMigrator.Runner.NoOpMigrationScope.IsActive">
+            <inheritdoc />
+        </member>
+        <member name="M:FluentMigrator.Runner.NoOpMigrationScope.Complete">
+            <inheritdoc />
+        </member>
+        <member name="M:FluentMigrator.Runner.NoOpMigrationScope.Cancel">
+            <inheritdoc />
+        </member>
+        <member name="T:FluentMigrator.Runner.Processors.ConnectionlessProcessorFactory">
+            <summary>
+            A processor factory to create SQL statements only (without executing them)
+            </summary>
+        </member>
+        <member name="M:FluentMigrator.Runner.Processors.ConnectionlessProcessorFactory.#ctor(FluentMigrator.Runner.Generators.IGeneratorAccessor,FluentMigrator.Runner.Initialization.IRunnerContext)">
+            <summary>
+            Initializes a new instance of the <see cref="T:FluentMigrator.Runner.Processors.ConnectionlessProcessorFactory"/> class.
+            </summary>
+            <param name="generatorAccessor">The accessor to get the migration generator to use</param>
+            <param name="runnerContext">The runner context</param>
+        </member>
+        <member name="M:FluentMigrator.Runner.Processors.ConnectionlessProcessorFactory.Create(System.String,FluentMigrator.Runner.IAnnouncer,FluentMigrator.IMigrationProcessorOptions)">
+            <inheritdoc />
+        </member>
+        <member name="M:FluentMigrator.Runner.Processors.ConnectionlessProcessorFactory.IsForProvider(System.String)">
+            <inheritdoc />
+        </member>
+        <member name="P:FluentMigrator.Runner.Processors.ConnectionlessProcessorFactory.Name">
+            <inheritdoc />
+        </member>
+        <member name="P:FluentMigrator.Runner.Processors.ConnectionlessProcessorFactory.PassThroughGeneratorAccessor.Generator">
+            <inheritdoc />
+        </member>
+        <member name="T:FluentMigrator.Runner.ProfileLoader">
+            <summary>
+            The default implementation of the <see cref="T:FluentMigrator.Runner.IProfileLoader"/>
+            </summary>
+        </member>
+        <member name="M:FluentMigrator.Runner.ProfileLoader.#ctor(Microsoft.Extensions.Options.IOptions{FluentMigrator.Runner.Initialization.RunnerOptions},FluentMigrator.Runner.Initialization.IProfileSource,System.IServiceProvider)">
+            <summary>
+            Initializes a new instance of the <see cref="T:FluentMigrator.Runner.ProfileLoader"/> class.
+            </summary>
+            <param name="options">The runner options</param>
+            <param name="source">The profile source</param>
+            <param name="serviceProvider">The service provider</param>
+        </member>
+        <member name="M:FluentMigrator.Runner.ProfileLoader.#ctor(FluentMigrator.Runner.Initialization.IRunnerContext,FluentMigrator.Runner.IMigrationRunner,FluentMigrator.Runner.IMigrationRunnerConventions)">
+            <summary>
+            Initializes a new instance of the <see cref="T:FluentMigrator.Runner.ProfileLoader"/> class.
+            </summary>
+            <param name="runnerContext">The migration runner context</param>
+            <param name="runner">The migration runner</param>
+            <param name="conventions">The migration runner conventions</param>
+        </member>
+        <member name="M:FluentMigrator.Runner.ProfileLoader.FindProfilesIn(FluentMigrator.Infrastructure.IAssemblyCollection,System.String)">
+            <inheritdoc />
+        </member>
+        <member name="P:FluentMigrator.Runner.ProfileLoader.Profiles">
+            <summary>
+            Gets all found profiles
+            </summary>
+        </member>
+        <member name="P:FluentMigrator.Runner.ProfileLoader.SupportsParameterlessApplyProfile">
+            <inheritdoc />
+        </member>
+        <member name="M:FluentMigrator.Runner.ProfileLoader.ApplyProfiles">
+            <inheritdoc />
+        </member>
+        <member name="M:FluentMigrator.Runner.ProfileLoader.ApplyProfiles(FluentMigrator.Runner.IMigrationRunner)">
+            <inheritdoc />
+        </member>
+        <member name="T:FluentMigrator.Runner.TrackingMigrationScope">
+            <inheritdoc />
+        </member>
+        <member name="M:FluentMigrator.Runner.TrackingMigrationScope.#ctor(System.Action)">
+            <summary>
+            Initializes a new instance of the <see cref="T:FluentMigrator.Runner.TrackingMigrationScope"/> class.
+            </summary>
+            <param name="disposalAction">Called after the scope was cancelled</param>
+        </member>
+        <member name="M:FluentMigrator.Runner.TrackingMigrationScope.Dispose">
+            <inheritdoc />
+        </member>
+        <member name="P:FluentMigrator.Runner.TrackingMigrationScope.IsActive">
+            <inheritdoc />
+        </member>
+        <member name="M:FluentMigrator.Runner.TrackingMigrationScope.Complete">
+            <inheritdoc />
+        </member>
+        <member name="M:FluentMigrator.Runner.TrackingMigrationScope.Cancel">
+            <inheritdoc />
+        </member>
+        <member name="M:FluentMigrator.Runner.TrackingMigrationScope.DoComplete">
+            <summary>
+            Called when <see cref="M:FluentMigrator.Runner.TrackingMigrationScope.Complete"/> was called and the scope was active
+            </summary>
+        </member>
+        <member name="M:FluentMigrator.Runner.TrackingMigrationScope.DoCancel">
+            <summary>
+            Called when <see cref="M:FluentMigrator.Runner.TrackingMigrationScope.Cancel"/> was called and the scope was active
+            </summary>
+        </member>
+        <member name="T:FluentMigrator.Runner.TransactionalMigrationScope">
+            <summary>
+            A migration scope encapsulating migrations in a transaction
+            </summary>
+        </member>
+        <member name="M:FluentMigrator.Runner.TransactionalMigrationScope.#ctor(FluentMigrator.IMigrationProcessor,System.Action)">
+            <summary>
+            Initializes a new instance of the <see cref="T:FluentMigrator.Runner.TransactionalMigrationScope"/> class.
+            </summary>
+            <param name="processor">The migration processor</param>
+            <param name="disposalAction">Called after the scope was cancelled</param>
+        </member>
+        <member name="M:FluentMigrator.Runner.TransactionalMigrationScope.DoComplete">
+            <inheritdoc />
+        </member>
+        <member name="M:FluentMigrator.Runner.TransactionalMigrationScope.DoCancel">
+            <inheritdoc />
+        </member>
+        <member name="T:FluentMigrator.Runner.Versioning.IVersionInfo">
+            <summary>
+            Interface to query/update migration information
+            </summary>
+        </member>
+        <member name="M:FluentMigrator.Runner.Versioning.IVersionInfo.AddAppliedMigration(System.Int64)">
+            <summary>
+            Adds a migration version number as applied
+            </summary>
+            <param name="migration">The version number</param>
+        </member>
+        <member name="M:FluentMigrator.Runner.Versioning.IVersionInfo.AppliedMigrations">
+            <summary>
+            Gets the version numbers of all applied migrations
+            </summary>
+            <returns>the version numbers of all applied migrations</returns>
+        </member>
+        <member name="M:FluentMigrator.Runner.Versioning.IVersionInfo.HasAppliedMigration(System.Int64)">
+            <summary>
+            Returns a value indicating whether a migration with the given version number has been applied
+            </summary>
+            <param name="migration">The migration version number to validate</param>
+            <returns><c>true</c> when the migration with the given version number has been applied</returns>
+        </member>
+        <member name="M:FluentMigrator.Runner.Versioning.IVersionInfo.Latest">
+            <summary>
+            Gets the version number of the latest migration that has been applied
+            </summary>
+            <returns>The version number</returns>
+        </member>
+        <member name="P:FluentMigrator.Runner.VersionTableInfo.DefaultVersionTableMetaData.ApplicationContext">
+            <summary>
+            Provides access to <code>ApplicationContext</code> object.
+            </summary>
+            <remarks>
+            ApplicationContext value is set by FluentMigrator immediately after instantiation of a class
+            implementing <code>IVersionTableMetaData</code> and before any of properties of <code>IVersionTableMetaData</code>
+            is called. Properties can use <code>ApplicationContext</code> value to implement context-depending logic.
+            </remarks>
+        </member>
+        <member name="T:Microsoft.Extensions.DependencyInjection.FluentMigratorServiceCollectionExtensions">
+            <summary>
+            Extension methods for setting up the migration runner services in an <see cref="T:Microsoft.Extensions.DependencyInjection.IServiceCollection"/>.
+            </summary>
+        </member>
+        <member name="M:Microsoft.Extensions.DependencyInjection.FluentMigratorServiceCollectionExtensions.AddFluentMigratorCore(Microsoft.Extensions.DependencyInjection.IServiceCollection)">
+            <summary>
+            Adds migration runner (except the DB processor specific) services to the specified <see cref="T:Microsoft.Extensions.DependencyInjection.IServiceCollection"/>.
+            </summary>
+            <param name="services">The <see cref="T:Microsoft.Extensions.DependencyInjection.IServiceCollection" /> to add services to.</param>
+            <returns>The updated service collection</returns>
+        </member>
+        <member name="M:Microsoft.Extensions.DependencyInjection.FluentMigratorServiceCollectionExtensions.ConfigureRunner(Microsoft.Extensions.DependencyInjection.IServiceCollection,System.Action{FluentMigrator.Runner.IMigrationRunnerBuilder})">
+            <summary>
+            Configures the migration runner
+            </summary>
+            <param name="services">The <see cref="T:Microsoft.Extensions.DependencyInjection.IServiceCollection" /> to add services to.</param>
+            <param name="configure">The <see cref="T:FluentMigrator.Runner.IMigrationRunnerBuilder"/> configuration delegate.</param>
+            <returns>The updated service collection</returns>
+        </member>
+        <member name="M:Microsoft.Extensions.DependencyInjection.FluentMigratorServiceCollectionExtensions.CreateServices(FluentMigrator.Runner.Initialization.IRunnerContext,FluentMigrator.Runner.Initialization.IConnectionStringProvider,FluentMigrator.Runner.Initialization.AssemblyLoader.AssemblyLoaderFactory)">
+            <summary>
+            Creates services for a given runner context, connection string provider and assembly loader factory.
+            </summary>
+            <param name="runnerContext">The runner context</param>
+            <param name="connectionStringProvider">The connection string provider</param>
+            <param name="defaultAssemblyLoaderFactory">The assembly loader factory</param>
+            <returns>The new service collection</returns>
+        </member>
+        <member name="M:Microsoft.Extensions.DependencyInjection.FluentMigratorServiceCollectionExtensions.AddAllDatabases(Microsoft.Extensions.DependencyInjection.IServiceCollection)">
+            <summary>
+            Add all database services to the service collection
+            </summary>
+            <param name="services">The service collection</param>
+            <returns>The service collection</returns>
+        </member>
+        <member name="P:Microsoft.Extensions.DependencyInjection.FluentMigratorServiceCollectionExtensions.MigrationRunnerBuilder.Services">
+            <inheritdoc />
+        </member>
+        <member name="P:Microsoft.Extensions.DependencyInjection.FluentMigratorServiceCollectionExtensions.MigrationRunnerBuilder.DanglingAssemblySourceItem">
+            <inheritdoc />
+        </member>
+        <member name="P:Microsoft.Extensions.DependencyInjection.FluentMigratorServiceCollectionExtensions.ConnectionlessProcessorAccessor.Processor">
+            <inheritdoc />
+        </member>
+    </members>
+</doc>

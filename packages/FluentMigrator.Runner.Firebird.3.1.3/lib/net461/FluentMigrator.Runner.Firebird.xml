@@ -1,0 +1,149 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>FluentMigrator.Runner.Firebird</name>
+    </assembly>
+    <members>
+        <member name="T:FluentMigrator.Runner.FirebirdRunnerBuilderExtensions">
+            <summary>
+            Extension methods for <see cref="T:FluentMigrator.Runner.IMigrationRunnerBuilder"/>
+            </summary>
+        </member>
+        <member name="M:FluentMigrator.Runner.FirebirdRunnerBuilderExtensions.AddFirebird(FluentMigrator.Runner.IMigrationRunnerBuilder)">
+            <summary>
+            Adds Firebird support
+            </summary>
+            <param name="builder">The builder to add the Firebird-specific services to</param>
+            <returns>The migration runner builder</returns>
+        </member>
+        <member name="M:FluentMigrator.Runner.FirebirdRunnerBuilderExtensions.AddFirebird(FluentMigrator.Runner.IMigrationRunnerBuilder,FluentMigrator.Runner.Processors.Firebird.FirebirdOptions)">
+            <summary>
+            Adds Firebird support
+            </summary>
+            <param name="builder">The builder to add the Firebird-specific services to</param>
+            <param name="fbOptions">Firebird options</param>
+            <returns>The migration runner builder</returns>
+        </member>
+        <member name="P:FluentMigrator.Runner.Generators.Firebird.FirebirdGenerator.AlterColumnSetNullable3">
+            <summary>
+            ALTER TABLE table_name ALTER column_name { DROP | SET } [NOT] NULL
+            </summary>
+        </member>
+        <member name="M:FluentMigrator.Runner.Generators.Firebird.FirebirdQuoter.#ctor(FluentMigrator.Runner.Processors.Firebird.FirebirdOptions)">
+            <summary>
+            Initializes a new instance of the <see cref="T:FluentMigrator.Runner.Generators.Firebird.FirebirdQuoter"/> class.
+            </summary>
+            <param name="options">The firebird specific options</param>
+        </member>
+        <member name="T:FluentMigrator.Runner.Processors.Firebird.FirebirdDDLLockTracker">
+            <summary>
+            Tracks virtual locks caused by DDL statements
+            </summary>
+        </member>
+        <member name="M:FluentMigrator.Runner.Processors.Firebird.FirebirdDDLLockTracker.#ctor(FluentMigrator.Runner.Generators.IQuoter)">
+            <summary>
+            Initializes a new instance of the <see cref="T:FluentMigrator.Runner.Processors.Firebird.FirebirdDDLLockTracker"/> class.
+            </summary>
+            <param name="quoter">The Firebird quoter</param>
+        </member>
+        <member name="M:FluentMigrator.Runner.Processors.Firebird.FirebirdDDLLockTracker.Clear">
+            <summary>
+            Clears all virtual locks
+            </summary>
+        </member>
+        <member name="M:FluentMigrator.Runner.Processors.Firebird.FirebirdDDLLockTracker.TryRegisterTable(System.String)">
+            <summary>
+            Registers a table as locked
+            </summary>
+            <param name="quotedTableName">The quoted table name</param>
+            <returns><c>true</c> when the table wasn't locked</returns>
+        </member>
+        <member name="M:FluentMigrator.Runner.Processors.Firebird.FirebirdDDLLockTracker.IsTableRegistered(System.String)">
+            <summary>
+            Returns a value indicating whether the table was locked
+            </summary>
+            <param name="quotedTableName">The quoted table name</param>
+            <returns><c>true</c> when the table is locked</returns>
+        </member>
+        <member name="M:FluentMigrator.Runner.Processors.Firebird.FirebirdDDLLockTracker.TryRegisterColumn(System.String,System.String)">
+            <summary>
+            Registers a column as locked
+            </summary>
+            <param name="quotedTableName">The quoted table name</param>
+            <param name="quotedColumnName">The quoted column name</param>
+            <returns><c>true</c> when the column wasn't locked</returns>
+        </member>
+        <member name="M:FluentMigrator.Runner.Processors.Firebird.FirebirdDDLLockTracker.IsColumnRegistered(System.String,System.String)">
+            <summary>
+            Returns a value indicating whether the column was locked
+            </summary>
+            <param name="quotedTableName">The quoted table name</param>
+            <param name="quotedColumnName">The quoted column name</param>
+            <returns><c>true</c> when the column is locked</returns>
+        </member>
+        <member name="T:FluentMigrator.Runner.Processors.Firebird.FirebirdIdentifierComparer">
+            <summary>
+            A custom <see cref="T:System.Collections.Generic.IEqualityComparer`1"/> for Firebird identifiers
+            </summary>
+        </member>
+        <member name="M:FluentMigrator.Runner.Processors.Firebird.FirebirdIdentifierComparer.#ctor(FluentMigrator.Runner.Generators.IQuoter)">
+            <summary>
+            Initializes a new instance of the <see cref="T:FluentMigrator.Runner.Processors.Firebird.FirebirdIdentifierComparer"/> class.
+            </summary>
+            <param name="quoter">The quoted used to unquote the quoted identifiers</param>
+        </member>
+        <member name="M:FluentMigrator.Runner.Processors.Firebird.FirebirdIdentifierComparer.Equals(System.String,System.String)">
+            <inheritdoc />
+        </member>
+        <member name="M:FluentMigrator.Runner.Processors.Firebird.FirebirdIdentifierComparer.GetHashCode(System.String)">
+            <inheritdoc />
+        </member>
+        <member name="M:FluentMigrator.Runner.Processors.Firebird.FirebirdIdentifierComparer.NormalizeIdentifier(System.String)">
+            <summary>
+            Normalizes the identifier the same way as Firebird
+            </summary>
+            <param name="identifier">The identifier to normalize</param>
+            <returns>The normalized identifier</returns>
+        </member>
+        <member name="F:FluentMigrator.Runner.Processors.Firebird.FirebirdTransactionModel.AutoCommitOnCheckFail">
+            <summary>
+            Automatically starts a new transaction when a virtual lock check fails
+            </summary>
+        </member>
+        <member name="F:FluentMigrator.Runner.Processors.Firebird.FirebirdTransactionModel.AutoCommit">
+            <summary>
+            Automaticaly commits every processed statement
+            </summary>
+        </member>
+        <member name="F:FluentMigrator.Runner.Processors.Firebird.FirebirdTransactionModel.None">
+            <summary>
+            Don't manage transactions
+            </summary>
+        </member>
+        <member name="F:FluentMigrator.Runner.Processors.Firebird.FirebirdOptions.MaxNameLength">
+            <summary>
+            Maximum internal length of names in firebird is 31 characters
+            </summary>
+        </member>
+        <member name="P:FluentMigrator.Runner.Processors.Firebird.FirebirdOptions.TruncateLongNames">
+            <summary>
+            Firebird only supports constraint, table, column, etc. names up to 31 characters
+            </summary>
+        </member>
+        <member name="P:FluentMigrator.Runner.Processors.Firebird.FirebirdOptions.VirtualLock">
+            <summary>
+            Virtually lock tables and columns touched by DDL statements in a transaction
+            </summary>
+        </member>
+        <member name="P:FluentMigrator.Runner.Processors.Firebird.FirebirdOptions.ForceQuote">
+            <summary>
+            Gets or sets a value indicating whether all names should be quoted unconditionally.
+            </summary>
+        </member>
+        <member name="P:FluentMigrator.Runner.Processors.Firebird.FirebirdOptions.TransactionModel">
+            <summary>
+            Which transaction model to use if any to work around firebird's DDL restrictions
+            </summary>
+        </member>
+    </members>
+</doc>

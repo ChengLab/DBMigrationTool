@@ -1,0 +1,26 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>FluentMigrator.Runner.SqlServerCe</name>
+    </assembly>
+    <members>
+        <member name="M:FluentMigrator.Runner.Generators.SqlServer.SqlServerCeColumn.FormatNullable(FluentMigrator.Model.ColumnDefinition)">
+            <inheritdoc />
+        </member>
+        <member name="M:FluentMigrator.Runner.Processors.SqlServer.SqlServerCeProcessor.CreateCommand(System.String,System.Data.IDbConnection,System.Data.IDbTransaction)">
+            <inheritdoc />
+        </member>
+        <member name="T:FluentMigrator.Runner.SqlServerCeRunnerBuilderExtensions">
+            <summary>
+            Extension methods for <see cref="T:FluentMigrator.Runner.IMigrationRunnerBuilder"/>
+            </summary>
+        </member>
+        <member name="M:FluentMigrator.Runner.SqlServerCeRunnerBuilderExtensions.AddSqlServerCe(FluentMigrator.Runner.IMigrationRunnerBuilder)">
+            <summary>
+            Adds SQL Server Compact Edition support
+            </summary>
+            <param name="builder">The builder to add the SQL Server CE-specific services to</param>
+            <returns>The migration runner builder</returns>
+        </member>
+    </members>
+</doc>

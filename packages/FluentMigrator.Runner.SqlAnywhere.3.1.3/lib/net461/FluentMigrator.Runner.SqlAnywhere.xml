@@ -1,0 +1,60 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>FluentMigrator.Runner.SqlAnywhere</name>
+    </assembly>
+    <members>
+        <member name="T:FluentMigrator.Runner.BatchParser.SqlAnywhereBatchParser">
+            <summary>
+            A specialization of the <see cref="T:FluentMigrator.Runner.BatchParser.SqlBatchParser"/> for the Microsoft SQL Server
+            </summary>
+            <remarks>
+            It uses the following range searchers: <see cref="T:FluentMigrator.Runner.BatchParser.RangeSearchers.MultiLineComment"/>, <see cref="T:FluentMigrator.Runner.BatchParser.RangeSearchers.DoubleDashSingleLineComment"/>,
+            <see cref="T:FluentMigrator.Runner.BatchParser.RangeSearchers.PoundSignSingleLineComment"/>, <see cref="T:FluentMigrator.Runner.BatchParser.RangeSearchers.AnsiSqlIdentifier"/>, <see cref="T:FluentMigrator.Runner.BatchParser.RangeSearchers.SqlString"/>
+            and the following token searchers: <see cref="T:FluentMigrator.Runner.BatchParser.SpecialTokenSearchers.GoSearcher"/>.
+            </remarks>
+        </member>
+        <member name="M:FluentMigrator.Runner.BatchParser.SqlAnywhereBatchParser.#ctor(System.String)">
+            <summary>
+            Initializes a new instance of the <see cref="T:FluentMigrator.Runner.BatchParser.SqlAnywhereBatchParser"/> class.
+            </summary>
+            <param name="newLine">The string used to write a new line sequence</param>
+        </member>
+        <member name="M:FluentMigrator.Runner.BatchParser.SqlAnywhereBatchParser.#ctor(System.Collections.Generic.IEnumerable{FluentMigrator.Runner.BatchParser.IRangeSearcher},System.Collections.Generic.IEnumerable{FluentMigrator.Runner.BatchParser.ISpecialTokenSearcher},System.String)">
+            <summary>
+            Initializes a new instance of the <see cref="T:FluentMigrator.Runner.BatchParser.SqlAnywhereBatchParser"/> class.
+            </summary>
+            <param name="rangeSearchers">The range searchers to be used</param>
+            <param name="specialTokenSearchers">The special token searchers to be used</param>
+            <param name="newLine">The new line sequence to be used for the output</param>
+        </member>
+        <member name="M:FluentMigrator.Runner.Generators.SqlAnywhere.SqlAnywhereColumn.FormatNullable(FluentMigrator.Model.ColumnDefinition)">
+            <inheritdoc />
+        </member>
+        <member name="M:FluentMigrator.Runner.Generators.SqlAnywhere.SqlAnywhereColumn.FormatDefaultValue(FluentMigrator.Model.ColumnDefinition)">
+            <inheritdoc />
+        </member>
+        <member name="M:FluentMigrator.Runner.Generators.SqlAnywhere.SqlAnywhereColumn.FormatIdentity(FluentMigrator.Model.ColumnDefinition)">
+            <inheritdoc />
+        </member>
+        <member name="T:FluentMigrator.Runner.SqlAnywhereRunnerBuilderExtensions">
+            <summary>
+            Extension methods for <see cref="T:FluentMigrator.Runner.IMigrationRunnerBuilder"/>
+            </summary>
+        </member>
+        <member name="M:FluentMigrator.Runner.SqlAnywhereRunnerBuilderExtensions.AddSqlAnywhere16(FluentMigrator.Runner.IMigrationRunnerBuilder)">
+            <summary>
+            Adds SAP SQL Anywhere support
+            </summary>
+            <param name="builder">The builder to add the SAP SQL Anywhere-specific services to</param>
+            <returns>The migration runner builder</returns>
+        </member>
+        <member name="M:FluentMigrator.Runner.SqlAnywhereRunnerBuilderExtensions.AddSqlAnywhere(FluentMigrator.Runner.IMigrationRunnerBuilder)">
+            <summary>
+            Adds SAP SQL Anywhere support for the latest version
+            </summary>
+            <param name="builder">The builder to add the SAP SQL Anywhere-specific services to</param>
+            <returns>The migration runner builder</returns>
+        </member>
+    </members>
+</doc>

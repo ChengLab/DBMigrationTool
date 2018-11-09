@@ -1,0 +1,36 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>FluentMigrator.Runner.MySql</name>
+    </assembly>
+    <members>
+        <member name="M:FluentMigrator.Runner.Generators.MySql.MySqlColumn.FormatIdentity(FluentMigrator.Model.ColumnDefinition)">
+            <inheritdoc />
+        </member>
+        <member name="T:FluentMigrator.Runner.MySqlRunnerBuilderExtensions">
+            <summary>
+            Extension methods for <see cref="T:FluentMigrator.Runner.IMigrationRunnerBuilder"/>
+            </summary>
+        </member>
+        <member name="M:FluentMigrator.Runner.MySqlRunnerBuilderExtensions.AddMySql4(FluentMigrator.Runner.IMigrationRunnerBuilder)">
+            <summary>
+            Adds MySQL 4 support
+            </summary>
+            <param name="builder">The builder to add the MySQL 4-specific services to</param>
+            <returns>The migration runner builder</returns>
+        </member>
+        <member name="M:FluentMigrator.Runner.MySqlRunnerBuilderExtensions.AddMySql5(FluentMigrator.Runner.IMigrationRunnerBuilder)">
+            <summary>
+            Adds MySQL 5 support
+            </summary>
+            <param name="builder">The builder to add the MySQL 5-specific services to</param>
+            <returns>The migration runner builder</returns>
+        </member>
+        <member name="M:FluentMigrator.Runner.Processors.MySql.MySql4Processor.#ctor(FluentMigrator.Runner.Processors.MySql.MySqlDbFactory,FluentMigrator.Runner.Generators.MySql.MySql4Generator,Microsoft.Extensions.Logging.ILogger{FluentMigrator.Runner.Processors.MySql.MySql4Processor},Microsoft.Extensions.Options.IOptionsSnapshot{FluentMigrator.Runner.Processors.ProcessorOptions},FluentMigrator.Runner.Initialization.IConnectionStringAccessor)">
+            <inheritdoc />
+        </member>
+        <member name="M:FluentMigrator.Runner.Processors.MySql.MySql5Processor.#ctor(FluentMigrator.Runner.Processors.MySql.MySqlDbFactory,FluentMigrator.Runner.Generators.MySql.MySql5Generator,Microsoft.Extensions.Logging.ILogger{FluentMigrator.Runner.Processors.MySql.MySql5Processor},Microsoft.Extensions.Options.IOptionsSnapshot{FluentMigrator.Runner.Processors.ProcessorOptions},FluentMigrator.Runner.Initialization.IConnectionStringAccessor)">
+            <inheritdoc />
+        </member>
+    </members>
+</doc>

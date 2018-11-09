@@ -1,0 +1,123 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>FluentMigrator.Runner.SqlServer</name>
+    </assembly>
+    <members>
+        <member name="T:FluentMigrator.Runner.BatchParser.SqlServerBatchParser">
+            <summary>
+            A specialization of the <see cref="T:FluentMigrator.Runner.BatchParser.SqlBatchParser"/> for the Microsoft SQL Server
+            </summary>
+            <remarks>
+            It uses the following range searchers: <see cref="T:FluentMigrator.Runner.BatchParser.RangeSearchers.MultiLineComment"/>, <see cref="T:FluentMigrator.Runner.BatchParser.RangeSearchers.DoubleDashSingleLineComment"/>,
+            <see cref="T:FluentMigrator.Runner.BatchParser.RangeSearchers.PoundSignSingleLineComment"/>, <see cref="T:FluentMigrator.Runner.BatchParser.RangeSearchers.SqlServerIdentifier"/>, <see cref="T:FluentMigrator.Runner.BatchParser.RangeSearchers.SqlString"/>
+            and the following token searchers: <see cref="T:FluentMigrator.Runner.BatchParser.SpecialTokenSearchers.GoSearcher"/>.
+            </remarks>
+        </member>
+        <member name="M:FluentMigrator.Runner.BatchParser.SqlServerBatchParser.#ctor(System.String)">
+            <summary>
+            Initializes a new instance of the <see cref="T:FluentMigrator.Runner.BatchParser.SqlServerBatchParser"/> class.
+            </summary>
+            <param name="newLine">The string used to write a new line sequence</param>
+        </member>
+        <member name="M:FluentMigrator.Runner.BatchParser.SqlServerBatchParser.#ctor(System.Collections.Generic.IEnumerable{FluentMigrator.Runner.BatchParser.IRangeSearcher},System.Collections.Generic.IEnumerable{FluentMigrator.Runner.BatchParser.ISpecialTokenSearcher},System.String)">
+            <summary>
+            Initializes a new instance of the <see cref="T:FluentMigrator.Runner.BatchParser.SqlServerBatchParser"/> class.
+            </summary>
+            <param name="rangeSearchers">The range searchers to be used</param>
+            <param name="specialTokenSearchers">The special token searchers to be used</param>
+            <param name="newLine">The new line sequence to be used for the output</param>
+        </member>
+        <member name="M:FluentMigrator.Runner.Generators.SqlServer.SqlServer2000Column.FormatDefaultValue(FluentMigrator.Model.ColumnDefinition)">
+            <inheritdoc />
+        </member>
+        <member name="M:FluentMigrator.Runner.Generators.SqlServer.SqlServer2000Column.FormatIdentity(FluentMigrator.Model.ColumnDefinition)">
+            <inheritdoc />
+        </member>
+        <member name="M:FluentMigrator.Runner.Generators.SqlServer.SqlServer2005Column.FormatNullable(FluentMigrator.Model.ColumnDefinition)">
+            <inheritdoc />
+        </member>
+        <member name="M:FluentMigrator.Runner.Generators.SqlServer.SqlServer2005Column.FormatRowGuid(FluentMigrator.Model.ColumnDefinition)">
+            <summary>
+            Add <c>ROWGUIDCOL</c> when <see cref="F:FluentMigrator.SqlServer.SqlServerExtensions.RowGuidColumn"/> is set.
+            </summary>
+            <param name="column">The column to create the definition part for</param>
+            <returns>The generated SQL string part</returns>
+        </member>
+        <member name="M:FluentMigrator.Runner.Processors.SqlServer.SqlServer2005Processor.#ctor(Microsoft.Extensions.Logging.ILogger{FluentMigrator.Runner.Processors.SqlServer.SqlServer2005Processor},FluentMigrator.Runner.Generators.SqlServer.SqlServer2005Quoter,FluentMigrator.Runner.Generators.SqlServer.SqlServer2005Generator,Microsoft.Extensions.Options.IOptionsSnapshot{FluentMigrator.Runner.Processors.ProcessorOptions},FluentMigrator.Runner.Initialization.IConnectionStringAccessor,System.IServiceProvider)">
+            <inheritdoc />
+        </member>
+        <member name="M:FluentMigrator.Runner.Processors.SqlServer.SqlServer2008Processor.#ctor(Microsoft.Extensions.Logging.ILogger{FluentMigrator.Runner.Processors.SqlServer.SqlServer2008Processor},FluentMigrator.Runner.Generators.SqlServer.SqlServer2008Quoter,FluentMigrator.Runner.Generators.SqlServer.SqlServer2008Generator,Microsoft.Extensions.Options.IOptionsSnapshot{FluentMigrator.Runner.Processors.ProcessorOptions},FluentMigrator.Runner.Initialization.IConnectionStringAccessor,System.IServiceProvider)">
+            <inheritdoc />
+        </member>
+        <member name="M:FluentMigrator.Runner.Processors.SqlServer.SqlServer2012Processor.#ctor(Microsoft.Extensions.Logging.ILogger{FluentMigrator.Runner.Processors.SqlServer.SqlServer2012Processor},FluentMigrator.Runner.Generators.SqlServer.SqlServer2008Quoter,FluentMigrator.Runner.Generators.SqlServer.SqlServer2012Generator,Microsoft.Extensions.Options.IOptionsSnapshot{FluentMigrator.Runner.Processors.ProcessorOptions},FluentMigrator.Runner.Initialization.IConnectionStringAccessor,System.IServiceProvider)">
+            <inheritdoc />
+        </member>
+        <member name="M:FluentMigrator.Runner.Processors.SqlServer.SqlServer2014Processor.#ctor(Microsoft.Extensions.Logging.ILogger{FluentMigrator.Runner.Processors.SqlServer.SqlServer2014Processor},FluentMigrator.Runner.Generators.SqlServer.SqlServer2008Quoter,FluentMigrator.Runner.Generators.SqlServer.SqlServer2014Generator,Microsoft.Extensions.Options.IOptionsSnapshot{FluentMigrator.Runner.Processors.ProcessorOptions},FluentMigrator.Runner.Initialization.IConnectionStringAccessor,System.IServiceProvider)">
+            <inheritdoc />
+        </member>
+        <member name="M:FluentMigrator.Runner.Processors.SqlServer.SqlServer2016Processor.#ctor(Microsoft.Extensions.Logging.ILogger{FluentMigrator.Runner.Processors.SqlServer.SqlServer2016Processor},FluentMigrator.Runner.Generators.SqlServer.SqlServer2008Quoter,FluentMigrator.Runner.Generators.SqlServer.SqlServer2016Generator,Microsoft.Extensions.Options.IOptionsSnapshot{FluentMigrator.Runner.Processors.ProcessorOptions},FluentMigrator.Runner.Initialization.IConnectionStringAccessor,System.IServiceProvider)">
+            <inheritdoc />
+        </member>
+        <member name="M:FluentMigrator.Runner.Processors.SqlServer.SqlServer2016Processor.#ctor(System.Data.Common.DbProviderFactory,Microsoft.Extensions.Logging.ILogger,FluentMigrator.Runner.Generators.SqlServer.SqlServer2008Quoter,FluentMigrator.Runner.Generators.SqlServer.SqlServer2016Generator,Microsoft.Extensions.Options.IOptionsSnapshot{FluentMigrator.Runner.Processors.ProcessorOptions},FluentMigrator.Runner.Initialization.IConnectionStringAccessor,System.IServiceProvider)">
+            <inheritdoc />
+        </member>
+        <member name="T:FluentMigrator.Runner.SqlServerRunnerBuilderExtensions">
+            <summary>
+            Extension methods for <see cref="T:FluentMigrator.Runner.IMigrationRunnerBuilder"/>
+            </summary>
+        </member>
+        <member name="M:FluentMigrator.Runner.SqlServerRunnerBuilderExtensions.AddSqlServer(FluentMigrator.Runner.IMigrationRunnerBuilder)">
+            <summary>
+            Adds SQL Server support
+            </summary>
+            <remarks>
+            This always selects the latest supported SQL server version.
+            </remarks>
+            <param name="builder">The builder to add the SQL Server-specific services to</param>
+            <returns>The migration runner builder</returns>
+        </member>
+        <member name="M:FluentMigrator.Runner.SqlServerRunnerBuilderExtensions.AddSqlServer2000(FluentMigrator.Runner.IMigrationRunnerBuilder)">
+            <summary>
+            Adds SQL Server 2000 support
+            </summary>
+            <param name="builder">The builder to add the SQL Server-specific services to</param>
+            <returns>The migration runner builder</returns>
+        </member>
+        <member name="M:FluentMigrator.Runner.SqlServerRunnerBuilderExtensions.AddSqlServer2005(FluentMigrator.Runner.IMigrationRunnerBuilder)">
+            <summary>
+            Adds SQL Server 2005 support
+            </summary>
+            <param name="builder">The builder to add the SQL Server-specific services to</param>
+            <returns>The migration runner builder</returns>
+        </member>
+        <member name="M:FluentMigrator.Runner.SqlServerRunnerBuilderExtensions.AddSqlServer2008(FluentMigrator.Runner.IMigrationRunnerBuilder)">
+            <summary>
+            Adds SQL Server 2008 support
+            </summary>
+            <param name="builder">The builder to add the SQL Server-specific services to</param>
+            <returns>The migration runner builder</returns>
+        </member>
+        <member name="M:FluentMigrator.Runner.SqlServerRunnerBuilderExtensions.AddSqlServer2012(FluentMigrator.Runner.IMigrationRunnerBuilder)">
+            <summary>
+            Adds SQL Server 2012 support
+            </summary>
+            <param name="builder">The builder to add the SQL Server-specific services to</param>
+            <returns>The migration runner builder</returns>
+        </member>
+        <member name="M:FluentMigrator.Runner.SqlServerRunnerBuilderExtensions.AddSqlServer2014(FluentMigrator.Runner.IMigrationRunnerBuilder)">
+            <summary>
+            Adds SQL Server 2014 support
+            </summary>
+            <param name="builder">The builder to add the SQL Server-specific services to</param>
+            <returns>The migration runner builder</returns>
+        </member>
+        <member name="M:FluentMigrator.Runner.SqlServerRunnerBuilderExtensions.AddSqlServer2016(FluentMigrator.Runner.IMigrationRunnerBuilder)">
+            <summary>
+            Adds SQL Server 2016 support
+            </summary>
+            <param name="builder">The builder to add the SQL Server-specific services to</param>
+            <returns>The migration runner builder</returns>
+        </member>
+    </members>
+</doc>

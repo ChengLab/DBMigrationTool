@@ -1,0 +1,32 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>FluentMigrator.Runner.Redshift</name>
+    </assembly>
+    <members>
+        <member name="M:FluentMigrator.Runner.Generators.Redshift.RedshiftColumn.FormatIdentity(FluentMigrator.Model.ColumnDefinition)">
+            <inheritdoc />
+        </member>
+        <member name="M:FluentMigrator.Runner.Generators.Redshift.RedshiftColumn.AddPrimaryKeyConstraint(System.String,System.Collections.Generic.IEnumerable{FluentMigrator.Model.ColumnDefinition})">
+            <inheritdoc />
+        </member>
+        <member name="T:FluentMigrator.Runner.Generators.Redshift.RedshiftDescriptionGenerator">
+            <summary>
+            almost copied from OracleDescriptionGenerator,
+            modified for escaping table description
+            </summary>
+        </member>
+        <member name="T:FluentMigrator.Runner.RedshiftRunnerBuilderExtensions">
+            <summary>
+            Extension methods for <see cref="T:FluentMigrator.Runner.IMigrationRunnerBuilder"/>
+            </summary>
+        </member>
+        <member name="M:FluentMigrator.Runner.RedshiftRunnerBuilderExtensions.AddRedshift(FluentMigrator.Runner.IMigrationRunnerBuilder)">
+            <summary>
+            Adds Redshift support
+            </summary>
+            <param name="builder">The builder to add the Redshift-specific services to</param>
+            <returns>The migration runner builder</returns>
+        </member>
+    </members>
+</doc>

@@ -1,0 +1,62 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>FluentMigrator.Runner.Oracle</name>
+    </assembly>
+    <members>
+        <member name="M:FluentMigrator.Runner.Generators.Oracle.OracleColumn.FormatIdentity(FluentMigrator.Model.ColumnDefinition)">
+            <inheritdoc />
+        </member>
+        <member name="M:FluentMigrator.Runner.Generators.Oracle.OracleColumn.FormatNullable(FluentMigrator.Model.ColumnDefinition)">
+            <inheritdoc />
+        </member>
+        <member name="M:FluentMigrator.Runner.Generators.Oracle.OracleColumn.GetPrimaryKeyConstraintName(System.Collections.Generic.IEnumerable{FluentMigrator.Model.ColumnDefinition},System.String)">
+            <inheritdoc />
+        </member>
+        <member name="T:FluentMigrator.Runner.OracleRunnerBuilderExtensions">
+            <summary>
+            Extension methods for <see cref="T:FluentMigrator.Runner.IMigrationRunnerBuilder"/>
+            </summary>
+        </member>
+        <member name="M:FluentMigrator.Runner.OracleRunnerBuilderExtensions.AddOracle(FluentMigrator.Runner.IMigrationRunnerBuilder)">
+            <summary>
+            Adds Oracle support
+            </summary>
+            <param name="builder">The builder to add the Oracle-specific services to</param>
+            <returns>The migration runner builder</returns>
+        </member>
+        <member name="M:FluentMigrator.Runner.OracleRunnerBuilderExtensions.AddOracleManaged(FluentMigrator.Runner.IMigrationRunnerBuilder)">
+            <summary>
+            Adds managed Oracle support
+            </summary>
+            <param name="builder">The builder to add the managed Oracle-specific services to</param>
+            <returns>The migration runner builder</returns>
+        </member>
+        <member name="M:FluentMigrator.Runner.OracleRunnerBuilderExtensions.AddDotConnectOracle(FluentMigrator.Runner.IMigrationRunnerBuilder)">
+            <summary>
+            Adds .Connect Oracle support
+            </summary>
+            <param name="builder">The builder to add the .Connect Oracle-specific services to</param>
+            <returns>The migration runner builder</returns>
+        </member>
+        <member name="T:FluentMigrator.Runner.ProcessorOptionsExtensions">
+            <summary>
+            Extension methods for <see cref="T:FluentMigrator.Runner.Processors.ProcessorOptions"/>
+            </summary>
+        </member>
+        <member name="M:FluentMigrator.Runner.ProcessorOptionsExtensions.IsQuotingForced(FluentMigrator.Runner.Processors.ProcessorOptions)">
+            <summary>
+            Returns a value indicating whether quoted identifiers are enforced
+            </summary>
+            <param name="options">The processor options</param>
+            <returns><c>true</c> when quoted identifiers are enforced</returns>
+        </member>
+        <member name="M:FluentMigrator.Runner.ProcessorOptionsExtensions.Quoted(System.String)">
+            <summary>
+            Returns a value indicating whether quoted identifiers are enforced
+            </summary>
+            <param name="options">The provider switches</param>
+            <returns><c>true</c> when quoted identifiers are enforced</returns>
+        </member>
+    </members>
+</doc>

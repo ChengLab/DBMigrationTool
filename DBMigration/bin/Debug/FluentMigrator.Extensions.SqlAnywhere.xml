@@ -1,0 +1,78 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>FluentMigrator.Extensions.SqlAnywhere</name>
+    </assembly>
+    <members>
+        <member name="T:FluentMigrator.SqlAnywhere.SqlAnywhereExtensions">
+            <summary>
+            Extension methods for SQL Anywhere
+            </summary>
+            <summary>
+            Extension methods for SQL Anywhere
+            </summary>
+            <summary>
+            Extension methods for SQL Anywhere
+            </summary>
+        </member>
+        <member name="M:FluentMigrator.SqlAnywhere.SqlAnywhereExtensions.SetConstraintType(FluentMigrator.Builders.Create.Constraint.ICreateConstraintOptionsSyntax,FluentMigrator.SqlAnywhereConstraintType)">
+            <summary>
+            Sets the index/unique constraint type
+            </summary>
+            <param name="expression">The expression</param>
+            <param name="type">The constraint type</param>
+            <exception cref="T:System.InvalidOperationException">Thrown when the <see cref="T:FluentMigrator.Infrastructure.ISupportAdditionalFeatures"/>
+            interface isn't supported by the expression</exception>
+        </member>
+        <member name="M:FluentMigrator.SqlAnywhere.SqlAnywhereExtensions.Clustered(FluentMigrator.Builders.Create.Constraint.ICreateConstraintOptionsSyntax)">
+            <summary>
+            Set the unique/index constraint type to <see cref="F:FluentMigrator.SqlAnywhereConstraintType.Clustered"/>
+            </summary>
+            <param name="expression">The expression</param>
+        </member>
+        <member name="M:FluentMigrator.SqlAnywhere.SqlAnywhereExtensions.NonClustered(FluentMigrator.Builders.Create.Constraint.ICreateConstraintOptionsSyntax)">
+            <summary>
+            Set the unique/index constraint type to <see cref="F:FluentMigrator.SqlAnywhereConstraintType.NonClustered"/>
+            </summary>
+            <param name="expression">The expression</param>
+        </member>
+        <member name="M:FluentMigrator.SqlAnywhere.SqlAnywhereExtensions.UniqueNullsNotDistinct(FluentMigrator.Builders.Create.Index.ICreateIndexOptionsSyntax)">
+            <summary>
+            Index should have unique values, but multiple rows with null values should be accepted.
+            </summary>
+            <param name="expression">The expression to set this option for</param>
+            <returns>The <paramref name="expression"/></returns>
+        </member>
+        <member name="M:FluentMigrator.SqlAnywhere.SqlAnywhereExtensions.UniqueNullsDistinct(FluentMigrator.Builders.Create.Index.ICreateIndexOptionsSyntax,System.Boolean)">
+            <summary>
+            Index should have unique values. Only one row with null value should be accepted (default for most known database engines).
+            </summary>
+            <param name="expression">The expression to set this option for</param>
+            <param name="nullsAreDistinct"><c>true</c> when nulls should be distinct</param>
+            <returns>The <paramref name="expression"/></returns>
+        </member>
+        <member name="M:FluentMigrator.SqlAnywhere.SqlAnywhereExtensions.Password(FluentMigrator.Builders.Create.Schema.ICreateSchemaOptionsSyntax,System.String)">
+            <summary>
+            Sets the schema password used during schema creation
+            </summary>
+            <param name="expression">The schema creation expression</param>
+            <param name="password">The password to use</param>
+            <returns>The next step</returns>
+        </member>
+        <member name="T:FluentMigrator.SqlAnywhereConstraintType">
+            <summary>
+            The constraint type as supported by SQL Anywhere
+            </summary>
+        </member>
+        <member name="F:FluentMigrator.SqlAnywhereConstraintType.Clustered">
+            <summary>
+            The index/unique constraint should be clustered
+            </summary>
+        </member>
+        <member name="F:FluentMigrator.SqlAnywhereConstraintType.NonClustered">
+            <summary>
+            The index/unique constraint should not be clustered
+            </summary>
+        </member>
+    </members>
+</doc>

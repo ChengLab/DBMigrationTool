@@ -1,0 +1,26 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>FluentMigrator.Runner.Jet</name>
+    </assembly>
+    <members>
+        <member name="M:FluentMigrator.Runner.Generators.Jet.JetColumn.FormatType(FluentMigrator.Model.ColumnDefinition)">
+            <inheritdoc />
+        </member>
+        <member name="M:FluentMigrator.Runner.Generators.Jet.JetColumn.FormatIdentity(FluentMigrator.Model.ColumnDefinition)">
+            <inheritdoc />
+        </member>
+        <member name="T:FluentMigrator.Runner.JetRunnerBuilderExtensions">
+            <summary>
+            Extension methods for <see cref="T:FluentMigrator.Runner.IMigrationRunnerBuilder"/>
+            </summary>
+        </member>
+        <member name="M:FluentMigrator.Runner.JetRunnerBuilderExtensions.AddJet(FluentMigrator.Runner.IMigrationRunnerBuilder)">
+            <summary>
+            Adds JET engine (Access) support
+            </summary>
+            <param name="builder">The builder to add the JET engine (Access)-specific services to</param>
+            <returns>The migration runner builder</returns>
+        </member>
+    </members>
+</doc>

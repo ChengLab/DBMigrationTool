@@ -1,0 +1,56 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>FluentMigrator.Runner.SQLite</name>
+    </assembly>
+    <members>
+        <member name="T:FluentMigrator.Runner.BatchParser.SQLiteBatchParser">
+            <summary>
+            A specialization of the <see cref="T:FluentMigrator.Runner.BatchParser.SqlBatchParser"/> for the Microsoft SQL Server
+            </summary>
+            <remarks>
+            It uses the following range searchers: <see cref="T:FluentMigrator.Runner.BatchParser.RangeSearchers.MultiLineComment"/>, <see cref="T:FluentMigrator.Runner.BatchParser.RangeSearchers.DoubleDashSingleLineComment"/>,
+            <see cref="T:FluentMigrator.Runner.BatchParser.RangeSearchers.PoundSignSingleLineComment"/>, <see cref="T:FluentMigrator.Runner.BatchParser.RangeSearchers.AnsiSqlIdentifier"/>, <see cref="T:FluentMigrator.Runner.BatchParser.RangeSearchers.SqlString"/>
+            and the following token searchers: <see cref="T:FluentMigrator.Runner.BatchParser.SpecialTokenSearchers.GoSearcher"/>.
+            </remarks>
+        </member>
+        <member name="M:FluentMigrator.Runner.BatchParser.SQLiteBatchParser.#ctor(System.String)">
+            <summary>
+            Initializes a new instance of the <see cref="T:FluentMigrator.Runner.BatchParser.SQLiteBatchParser"/> class.
+            </summary>
+            <param name="newLine">The string used to write a new line sequence</param>
+        </member>
+        <member name="M:FluentMigrator.Runner.BatchParser.SQLiteBatchParser.#ctor(System.Collections.Generic.IEnumerable{FluentMigrator.Runner.BatchParser.IRangeSearcher},System.Collections.Generic.IEnumerable{FluentMigrator.Runner.BatchParser.ISpecialTokenSearcher},System.String)">
+            <summary>
+            Initializes a new instance of the <see cref="T:FluentMigrator.Runner.BatchParser.SQLiteBatchParser"/> class.
+            </summary>
+            <param name="rangeSearchers">The range searchers to be used</param>
+            <param name="specialTokenSearchers">The special token searchers to be used</param>
+            <param name="newLine">The new line sequence to be used for the output</param>
+        </member>
+        <member name="M:FluentMigrator.Runner.Generators.SQLite.SQLiteColumn.Generate(System.Collections.Generic.IEnumerable{FluentMigrator.Model.ColumnDefinition},System.String)">
+            <inheritdoc />
+        </member>
+        <member name="M:FluentMigrator.Runner.Generators.SQLite.SQLiteColumn.FormatIdentity(FluentMigrator.Model.ColumnDefinition)">
+            <inheritdoc />
+        </member>
+        <member name="M:FluentMigrator.Runner.Generators.SQLite.SQLiteColumn.ShouldPrimaryKeysBeAddedSeparately(System.Collections.Generic.IEnumerable{FluentMigrator.Model.ColumnDefinition})">
+            <inheritdoc />
+        </member>
+        <member name="M:FluentMigrator.Runner.Generators.SQLite.SQLiteColumn.FormatPrimaryKey(FluentMigrator.Model.ColumnDefinition)">
+            <inheritdoc />
+        </member>
+        <member name="T:FluentMigrator.Runner.SQLiteRunnerBuilderExtensions">
+            <summary>
+            Extension methods for <see cref="T:FluentMigrator.Runner.IMigrationRunnerBuilder"/>
+            </summary>
+        </member>
+        <member name="M:FluentMigrator.Runner.SQLiteRunnerBuilderExtensions.AddSQLite(FluentMigrator.Runner.IMigrationRunnerBuilder)">
+            <summary>
+            Adds SQLite support
+            </summary>
+            <param name="builder">The builder to add the SQLite-specific services to</param>
+            <returns>The migration runner builder</returns>
+        </member>
+    </members>
+</doc>

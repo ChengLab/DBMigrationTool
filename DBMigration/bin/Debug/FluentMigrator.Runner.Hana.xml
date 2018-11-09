@@ -1,0 +1,20 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>FluentMigrator.Runner.Hana</name>
+    </assembly>
+    <members>
+        <member name="T:FluentMigrator.Runner.HanaRunnerBuilderExtensions">
+            <summary>
+            Extension methods for <see cref="T:FluentMigrator.Runner.IMigrationRunnerBuilder"/>
+            </summary>
+        </member>
+        <member name="M:FluentMigrator.Runner.HanaRunnerBuilderExtensions.AddHana(FluentMigrator.Runner.IMigrationRunnerBuilder)">
+            <summary>
+            Adds SAP Hana support
+            </summary>
+            <param name="builder">The builder to add the SAP Hana-specific services to</param>
+            <returns>The migration runner builder</returns>
+        </member>
+    </members>
+</doc>

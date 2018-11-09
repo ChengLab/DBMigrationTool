@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.27703.2018
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DBMigrationTool", "DBMigration\DBMigrationTool.csproj", "{492576CF-418D-447D-9D03-201A34934B23}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DatabaseMigration", "DatabaseMigration\DatabaseMigration.csproj", "{04220E7F-76C2-4CC8-9360-43429A656F75}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{492576CF-418D-447D-9D03-201A34934B23}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{492576CF-418D-447D-9D03-201A34934B23}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{492576CF-418D-447D-9D03-201A34934B23}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{492576CF-418D-447D-9D03-201A34934B23}.Release|Any CPU.Build.0 = Release|Any CPU
+		{04220E7F-76C2-4CC8-9360-43429A656F75}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{04220E7F-76C2-4CC8-9360-43429A656F75}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{04220E7F-76C2-4CC8-9360-43429A656F75}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{04220E7F-76C2-4CC8-9360-43429A656F75}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {BF3D9F2B-EFB7-470C-9F54-B727E2747790}
+	EndGlobalSection
+EndGlobal
